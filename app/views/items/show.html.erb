@@ -1,0 +1,38 @@
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= csrf_meta_tags %>
+
+<link rel="stylesheet" type="text/css" href="../stylesheets/main.css">
+
+<body>
+  <div class="content">
+
+    <div class="hhnyc">
+      CHHHECKOUT
+    </div>
+
+    <div class="coffeewasmade">
+      <%= @item[:name] %>
+    </div>
+
+    <div>
+      Reserved for: <%= @item[:customer_name] %>
+    </div>
+
+    <div>
+      <%= @date %>
+
+    <div class ="coffeeMaker">
+      <%= link_to 'Check out', checkout_items_path, id: "checkout", remote: true, method: :get  %>
+    </div>
+
+    <div class ="coffeeMaker">
+      <%= link_to 'Check in', checkin_items_path, id: "checkin", remote: true, method: :get  %>
+    </div>
+
+    <BR>
+    <div id ="justmadecoffee" class="button">
+      	<a href="<%= params[:id].to_i %>.svg">QR Code</a>
+    </div>
+
+  </div>
